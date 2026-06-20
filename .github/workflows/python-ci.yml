@@ -1,0 +1,11 @@
+name: My First CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello Umair, CI is working!"
+      
