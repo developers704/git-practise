@@ -1,11 +1,16 @@
-name: My First CI
+name: Python CI
 
 on: [push]
 
 jobs:
-  test:
+  run-python:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Hello Umair, CI is working!"
-      
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: python app.py
