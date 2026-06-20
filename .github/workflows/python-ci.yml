@@ -3,14 +3,20 @@ name: Python CI
 on: [push]
 
 jobs:
-  run-python:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - run: python app.py
+      - name: Install Pytest
+        run: pip install pytest
+
+      - name: Run Tests
+        run: python -m pytest
